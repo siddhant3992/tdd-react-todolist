@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import TaskList from "./TaskList";
 
-export default class Task extends Component {
+export default class TaskContainer extends Component {
   onDeleteTask = id => {
     this.props.onDelete(id);
   };
-  checkedChecked = (checkVal, id) => {
+  checkedChecked = (id,checkVal) => {
     this.props.onChecked(checkVal, id);
   };
   render() {
@@ -14,13 +14,15 @@ export default class Task extends Component {
       taskItems = this.props.tasks.map(task => {
         let clsName = task.chk ? "checked-Task" : "unchecked-Task";
         return (
+        
           <TaskList
-            onDelete={this.onDeleteTask.bind(this, task._id)}
-            onChecked={this.checkedChecked.bind(this, task._id)}
+            onDelete={this.onDeleteTask}
+            onChecked={this.checkedChecked}
             cls={clsName}
             key={task.task}
             task={task}
           />
+        
         );
       });
     }

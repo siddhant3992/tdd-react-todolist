@@ -21,7 +21,6 @@ export default class TaskList extends Component {
         <span className={this.props.cls}>{this.props.task.task}</span>
         <a
           className="deleteButton"
-          href="#"
           onClick={this.deleteTask}
         >
           x

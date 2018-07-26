@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import uuid from "uuid";
 export default class AddTask extends Component {
   handlerSubmit(e) {
-    console.log();
     if (e.target[0].value === "") {
       alert("task required");
     } else {
