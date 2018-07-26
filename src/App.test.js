@@ -4,7 +4,7 @@ import App from "./App";
 import AddTask from "./components/AddTask";
 import TaskContainer from "./components/TaskContainer";
 import Adapter from "enzyme-adapter-react-16";
-import { shallow, configure } from "enzyme";
+import { mount,shallow, configure } from "enzyme";
 configure({ adapter: new Adapter() });
 
 describe("<App/>", () => {
@@ -26,7 +26,7 @@ describe("<App/>", () => {
     expect(wrapper.state("tasks")).toEqual([]);
   });
 
-  it("adds items to the list", () => {
+  it("adds Task to the state", () => {
     const wrapper = shallow(<App />);
     wrapper
       .instance()
@@ -36,14 +36,14 @@ describe("<App/>", () => {
     ]);
   });
 
-  it('it should return function which passed as props', () => {
+  it('passes a bound function to AddTask component', () => {
     const wrapper = shallow(<App/>);
     const AddTask= wrapper.find("AddTask");
     const addItem = wrapper.instance().handleAddTAsk;
     expect(AddTask.prop("addTask")).toEqual(addItem);
   });
 
-  it('it should return props passed to TaskContainer component', () => {
+  it('passes some props to TaskContainer component', () => {
     const wrapper = shallow(<App/>);
     const TaskContainer= wrapper.find("TaskContainer");
     const onChecked = wrapper.instance().handleCheckTask;
@@ -51,5 +51,12 @@ describe("<App/>", () => {
     expect(TaskContainer.prop("tasks")).toEqual(wrapper.state("tasks"));
     expect(TaskContainer.prop("onChecked")).toEqual(onChecked);
     expect(TaskContainer.prop("onDelete")).toEqual(onDelete);
+  });
+
+  xit('renders the items', () => {
+    const wrapper = mount(<App/>);
+    wrapper.instance().handleAddTAsk({ id: 123, task: "what to do", chk: false });
+    wrapper.instance().handleAddTAsk({ id: 1234, task: "go carting", chk: true });
+    expect(wrapper.find('li').length).toEqual(2);
   });
 });
