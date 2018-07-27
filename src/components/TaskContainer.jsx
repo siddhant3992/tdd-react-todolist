@@ -5,7 +5,7 @@ export default class TaskContainer extends Component {
   onDeleteTask = id => {
     this.props.onDelete(id);
   };
-  checkedChecked = (id, checkVal) => {
+  checkedOrNot = (id, checkVal) => {
     this.props.onChecked(checkVal, id);
   };
   render() {
@@ -16,7 +16,7 @@ export default class TaskContainer extends Component {
         return (
           <TaskList
             onDelete={this.onDeleteTask}
-            onChecked={this.checkedChecked}
+            onChecked={this.checkedOrNot}
             cls={clsName}
             key={task.task}
             task={task}

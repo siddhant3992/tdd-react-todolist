@@ -2,7 +2,7 @@ import React from "react";
 import ReactDom from "react-dom";
 import TaskList from "./components/TaskList";
 import Adapter from "enzyme-adapter-react-16";
-import { mount, shallow, configure } from "enzyme";
+import {shallow, configure } from "enzyme";
 configure({ adapter: new Adapter() });
 
 describe("<TaskList/>", () => {
