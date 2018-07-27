@@ -1,15 +1,15 @@
 import React, { Component } from "react";
 
 export default class TaskList extends Component {
-  deleteTask=()=>{
+  deleteTask = () => {
     this.props.onDelete(this.props.task.id);
-  }
+  };
 
-  checkChecked=(event)=>{
+  checkChecked = event => {
     let checkVal = event.target.checked;
     let id = this.props.task.id;
     this.props.onChecked(checkVal, id);
-  }
+  };
 
   render() {
     return (
@@ -19,10 +19,7 @@ export default class TaskList extends Component {
           <span className="checkmark" />
         </label>
         <span className={this.props.cls}>{this.props.task.task}</span>
-        <a
-          className="deleteButton"
-          onClick={this.deleteTask}
-        >
+        <a className="deleteButton" onClick={this.deleteTask}>
           x
         </a>
       </li>

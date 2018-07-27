@@ -11,26 +11,23 @@ class App extends Component {
     };
   }
 
-  handleAddTAsk=(task)=>{
-    let tasks = this.state.tasks.slice();
-    tasks.push(task);
-    this.setState({ tasks: tasks });
-    console.log(tasks);
-  }
+  handleAddTAsk = task => {
+    this.setState({ tasks: [...this.state.tasks, task] });
+  };
 
-  handleDeleteTask=(id)=>{
+  handleDeleteTask = id => {
     let task = this.state.tasks.slice();
     let index = task.findIndex(x => x.id === id);
     task.splice(index, 1);
     this.setState({ tasks: task });
-  }
+  };
 
-  handleCheckTask=(id,checkVal)=>{
+  handleCheckTask = (id, checkVal) => {
     let arr = this.state.tasks.slice();
     let index = arr.findIndex(x => x.id === id);
     arr[index].chk = checkVal;
     this.setState({ tasks: arr });
-  }
+  };
 
   render() {
     return (

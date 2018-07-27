@@ -24,6 +24,16 @@ ul {
 form {
   margin-bottom: 5px;
 }
+.subBtn {
+  height: 30px;
+  border-radius: 10px;
+  background: black;
+  color: white;
+  outline: none;
+  font-size: 18px;
+  padding: 0px 5px;
+  cursor: pointer;
+}
 .taskList {
   background-color: #478a47;
   padding: 8px 5px;
@@ -31,7 +41,7 @@ form {
   overflow: auto;
   justify-content: space-between;
   margin-bottom: 3px;
-  width: 40vw;
+  width: 45vw;
   border-radius: 10px;
 }
 .textBox {
@@ -48,6 +58,7 @@ form {
   color: white;
   padding: 3px;
   border-radius: 5px;
+  cursor: pointer;
 }
 .checked-Task {
   text-decoration: line-through;
